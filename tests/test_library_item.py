@@ -69,3 +69,29 @@ def test_init_creates_new_instance():
     assert item._LibraryItem__author == "Walt Whitmen"
     assert item.__LibraryItem__genre == Genre.FICTION
     assert item._LibraryItem__is_borrowed is True
+
+def test_item_id_property():
+    """Test that item_id returns"""
+    item = make_item()
+    assert item.item_id == item._LibraryItem__item_id
+
+def test_title_property():
+    """Tests title returns the current value."""
+    item = make_item()
+    assert item.title == item._LibraryItem__title
+
+def test_author_property():
+    """Test that author returns the current value"""
+    item = make_item()
+    assert item.author == item._LibraryItem__author
+
+def test_genre_property():
+    """Tests genre returns the current value"""
+    item = make_item()
+    assert item.genre == item._LibraryItem__genre
+
+def test_is_borrowed_property():
+    """Tests is_borrowed returns the current value"""
+    item = make_item(is_borrowed=True)
+    assert item.is_borrowed == item._LibraryItem__is_borrowed
+
