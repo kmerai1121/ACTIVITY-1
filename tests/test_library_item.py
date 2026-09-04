@@ -95,3 +95,26 @@ def test_is_borrowed_property():
     item = make_item(is_borrowed=True)
     assert item.is_borrowed == item._LibraryItem__is_borrowed
 
+
+
+# __str__
+
+def test_str_borrowed_string():
+    """Test string representation for borrowed item"""
+    item = make_item(is_borrowed=True)
+    expected = (
+        "14924: Leaves of Grass (Walt Whitmen)\n"
+        "STATUS: Borrowed"
+    )
+
+    assert str(item) == expected
+
+def test_str_available():
+    """Tests string representation for available item"""
+    item = make_item(is_borrowed=False)
+    expected = (
+        "14924: Leaves of Grass (Walt Whitmen)\n"
+        "STATUS: Available"
+    )
+
+    assert str(item) == expected
