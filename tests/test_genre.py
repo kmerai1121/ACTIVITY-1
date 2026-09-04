@@ -1,9 +1,9 @@
 """Unit tests for the Genre enumeration"""
 
-from library_item.genre import Genre
+from Library_Item.genre import Genre
 
 def test_fiction_value_initialized():
-    """Verifu fiction is initialized to 100"""
+    """Verify fiction is initialized to 100"""
     assert Genre.FICTION.value == 100
 
 def test_non_fiction_value_initialized():

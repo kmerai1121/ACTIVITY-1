@@ -2,8 +2,8 @@
 
 import pytest
 
-from library_item.genre import Genre
-from library_item.library_item import LibraryItem
+from Library_Item.genre import Genre
+from Library_Item.library_item import LibraryItem
 
 def make_item(is_borrowed=False):
     return LibraryItem(14924,
@@ -57,7 +57,7 @@ def test_init_creates_new_instance():
     item = LibraryItem(
         14924,
         " Leaves of Grass ",
-        " Walt Whitmen ",
+        " Walt Whitman ",
         Genre.FICTION,
         True
     )
@@ -66,8 +66,8 @@ def test_init_creates_new_instance():
 
     assert item._LibraryItem__item_id == 14924
     assert item._LibraryItem__title == "Leaves of Grass"
-    assert item._LibraryItem__author == "Walt Whitmen"
-    assert item.__LibraryItem__genre == Genre.FICTION
+    assert item._LibraryItem__author == "Walt Whitman"
+    assert item._LibraryItem__genre == Genre.FICTION
     assert item._LibraryItem__is_borrowed is True
 
 def test_item_id_property():
@@ -103,7 +103,7 @@ def test_str_borrowed_string():
     """Test string representation for borrowed item"""
     item = make_item(is_borrowed=True)
     expected = (
-        "14924: Leaves of Grass (Walt Whitmen)\n"
+        "14924: Leaves of Grass (Walt Whitman)\n"
         "STATUS: Borrowed"
     )
 
@@ -113,7 +113,7 @@ def test_str_available():
     """Tests string representation for available item"""
     item = make_item(is_borrowed=False)
     expected = (
-        "14924: Leaves of Grass (Walt Whitmen)\n"
+        "14924: Leaves of Grass (Walt Whitman)\n"
         "STATUS: Available"
     )
 

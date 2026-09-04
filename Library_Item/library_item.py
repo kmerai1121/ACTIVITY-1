@@ -49,14 +49,15 @@ class LibraryItem:
         """Returns whether the item is borrowed"""
         return self.__is_borrowed
     
-    def __str__(str) -> str:
-        """Return the informal string of the item"""
+    def __str__(self) -> str:
+        """Return the informal string of the item."""
+
         if self.__is_borrowed:
             availability = "Borrowed"
-
         else:
             availability = "Available"
 
-        return(f"{self.__item_id}: {self.__title} ({self.__author})\n"
-               f"Status: {availability}")
-    
+        return (
+            f"{self.__item_id}: {self.__title} ({self.__author})\n"
+            f"STATUS: {availability}"
+    )
