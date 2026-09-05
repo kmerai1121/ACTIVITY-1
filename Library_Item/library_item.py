@@ -1,23 +1,41 @@
 """Defines LibraryItem"""
 
 from .genre import Genre
+
+
 class LibraryItem:
 
-    def __init__(self,
-                item_id: int,
-                title:str,
-                author: str,
-                genre: Genre,
-                is_borrowed: bool):
-        """Initialize LibraryItem and validate its values"""
+    def __init__(
+        self,
+        item_id: int,
+        title: str,
+        author: str,
+        genre: Genre,
+        is_borrowed: bool
+    ):
+        """Initialize LibraryItem and validate its values."""
 
+        # Validate item_id
         if type(item_id) is not int or item_id < 1000:
-            raise ValueError("item_id must be a positive value with a minimum of four digits")
+            raise ValueError(
+                "item_id must be a positive value with a minimum of four digits"
+    )
+        author = author.strip()
 
+        if author == "":
+            raise ValueError("author cannot be an empty string")
+
+        # Clean and validate title
         title = title.strip()
         if title == "":
-            raise ValueError("Author cannot be an empty string")
+            raise ValueError("title cannot be an empty string")
 
+        # Clean and validate author
+        author = author.strip()
+        if author == "":
+            raise ValueError("author cannot be an empty string")
+
+        # Store values
         self.__item_id = item_id
         self.__title = title
         self.__author = author
@@ -26,29 +44,29 @@ class LibraryItem:
 
     @property
     def item_id(self) -> int:
-        """Returns the item ID"""
+        """Returns the item ID."""
         return self.__item_id
 
     @property
     def title(self) -> str:
-        """Returns title"""
+        """Returns title."""
         return self.__title
 
     @property
     def author(self) -> str:
-        """Returns author"""
+        """Returns author."""
         return self.__author
 
     @property
     def genre(self) -> Genre:
-        """Returns Genre"""
+        """Returns Genre."""
         return self.__genre
 
     @property
     def is_borrowed(self) -> bool:
-        """Returns whether the item is borrowed"""
+        """Returns whether the item is borrowed."""
         return self.__is_borrowed
-    
+
     def __str__(self) -> str:
         """Return the informal string of the item."""
 
@@ -60,4 +78,4 @@ class LibraryItem:
         return (
             f"{self.__item_id}: {self.__title} ({self.__author})\n"
             f"STATUS: {availability}"
-    )
+        )

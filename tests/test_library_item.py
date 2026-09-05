@@ -8,14 +8,14 @@ from Library_Item.library_item import LibraryItem
 def make_item(is_borrowed=False):
     return LibraryItem(14924,
                        "Leaves of Grass",
-                       "Walt Whitmen",
+                       "Walt Whitman",
                        Genre.FICTION,
                        is_borrowed)
 
 def test_init_rejects_item_id_less_than_four():
     """Test that an item ID below four digits raised ValueError"""
     with pytest.raises(ValueError,
-                       match=("item_id must be a positive with a minimum of four digits")
+                       match=("^item_id must be a positive value with a minimum of four digits$")
                        ):
         LibraryItem(
             999,
@@ -32,7 +32,7 @@ def test_init_rejects_empty_title():
     ):
         LibraryItem(
             1000,
-            "",
+            "  ",
             "Author",
             Genre.FICTION,
             False
@@ -47,7 +47,7 @@ def test_init_rejects_empty_author():
         LibraryItem(
             1000,
             "Title",
-            " ",
+            "  ",
             Genre.FICTION,
             False
         )
